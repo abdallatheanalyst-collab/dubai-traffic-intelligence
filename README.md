@@ -1,6 +1,6 @@
 # Dubai Smart Traffic Intelligence Platform
 
-End-to-end data analytics project on **705,944 UAE traffic incidents** — from raw open data through SQL Server ETL, dimensional modeling, and an interactive Power BI dashboard.
+End-to-end data analytics project on **705,944 UAE traffic incidents**, from raw open data through SQL Server ETL, dimensional modeling, and an interactive Power BI dashboard.
 
  ![Dashboard](dashboard.jpg)
 
@@ -73,13 +73,13 @@ The dataset has native Arabic incident descriptions. VARCHAR uses single-byte en
 Opening the raw CSV produced mojibake (`ØµØ¯Ù...`) because of a UTF-8 / Windows CSV mismatch. Saving as Excel preserves the encoding before it reaches SQL Server, so the encoding fix happens once at the source rather than inside every query downstream.
 
 ### 3. Nullable coordinate columns
-Real-world data has gaps. Forcing NOT NULL on `acci_x` / `acci_y` would have failed the import and forced row-loss decisions before any analysis. Nullable columns + later quality-aware filtering is the cleaner pattern.
+Real-world data has gaps. Forcing NOT NULL on `acci_x` / `acci_y` would have failed the import and forced row loss decisions before any analysis. Nullable columns + later quality-aware filtering is the cleaner pattern.
 
 ### 4. Layered ETL (raw → clean → analytical)
-Mirrors the medallion architecture used in enterprise data lakes. The raw layer is **immutable** — if a downstream decision turns out to be wrong, I can rebuild without re-ingesting the source.
+Mirrors the medallion architecture used in enterprise data lakes. The raw layer is **immutable** if a downstream decision turns out to be wrong, I can rebuild without re-ingesting the source.
 
 ### 5. Rank-based deduplication, not blunt DISTINCT
-Investigation showed duplicates weren't always identical — same `acci_id`, but one row with valid coordinates, another with NULLs. A simple DISTINCT would have lost information. Instead:
+Investigation showed duplicates weren't always identical, same `acci_id`, but one row with valid coordinates, another with NULLs. A simple DISTINCT would have lost information. Instead:
 
 ```sql
 ROW_NUMBER() OVER (
@@ -96,13 +96,13 @@ Priority: valid coordinates first, then most recent. This is the enterprise "lat
 3.1% of records had coordinates outside the UAE (values like `102.x`, `131.x`). Possible causes: mixed coordinate systems, GIS corruption, or upstream entry errors. Rather than guess, I isolated valid UAE records into a dedicated `Geo_Clean_Traffic_Incidents` table for mapping, and kept the full operational table for trend analysis. **No business events were silently dropped.**
 
 ### 7. Rounded coordinates for hotspot clustering
-Raw GPS points are too granular for human pattern recognition — `25.216592` and `25.218111` are functionally the same location. Rounding to 2 decimals (~1.1 km grid in the UAE) creates operational zones suitable for visualization without distorting the geography.
+Raw GPS points are too granular for human pattern recognition, `25.216592` and `25.218111` are functionally the same location. Rounding to 2 decimals (~1.1 km grid in the UAE) creates operational zones suitable for visualization without distorting the geography.
 
 ### 8. Star schema instead of one flat table
 Power BI is optimized for star schemas. One large fact table + small dimension tables = fast slicing, clean DAX, and a relationship view that explains itself. Loading dimension tables on the "one" side and the fact table on the "many" side means a single filter on `Dim_Date[weekday_name]` propagates automatically to 705K incidents.
 
 ### 9. Import mode in Power BI (not DirectQuery)
-Tested DirectQuery first. Filter response was sluggish on 705K rows over a local SQL Server connection. Switched to Import — sub-second filter response, identical results.
+Tested DirectQuery first. Filter response was sluggish on 705K rows over a local SQL Server connection. Switched to Import, sub-second filter response, identical results.
 
 ### 10. Native Arabic labels on charts
 The encoding work earlier in the pipeline was specifically so I could display Arabic incident categories without compromise. Keeping them native respects UAE stakeholders and proves the encoding chain works end-to-end.
@@ -160,7 +160,7 @@ Same `SUMMARIZE → TOPN → MAXX` pattern is reused for `Busiest Day`. Reusing 
 - **Busiest day: Thursday.** Quietest: Friday.
 - **Seasonality:** Nov–Feb high (cooler UAE weather, tourism); Jul–Aug low (heat, travel exodus).
 - **COVID-19 dip in 2020**, full recovery by 2023.
-- **Global ≠ local:** city peaks at 2 PM, but hotspot zones around 25.20° / 55.28° peak between **5–9 PM**. Local patterns and global patterns tell different stories — only visible when temporal and spatial dimensions are combined.
+- **Global ≠ local:** city peaks at 2 PM, but hotspot zones around 25.20° / 55.28° peak between **5–9 PM**. Local patterns and global patterns tell different stories, only visible when temporal and spatial dimensions are combined.
 
 ---
 
@@ -207,7 +207,7 @@ Same `SUMMARIZE → TOPN → MAXX` pattern is reused for `Busiest Day`. Reusing 
 
 ## Author
 
-Built by **Abdalla Mohamud** — Data Analyst.
+Built by **Abdalla Mohamud**
 
 [Portfolio](https://your-portfolio.com) · [LinkedIn](https://linkedin.com/in/your-handle)
 
