@@ -195,14 +195,12 @@ Same `SUMMARIZE → TOPN → MAXX` pattern is reused for `Busiest Day`. Reusing 
 
 ---
 
-## Roadmap
+## What I Learned
 
-- [ ] Severity classification model
-- [ ] Weather data join for seasonal correlation
-- [ ] Forecasting layer (Power BI native or Python)
-- [ ] Drill-through pages for zone and category detail
-- [ ] Row-level security for multi-tenant deployment
-
+- [ ] How to design a layered ETL pipeline that preserves raw data
+- [ ] Why blunt DISTINCT is rarely the right deduplication strategy
+- [ ] How to validate geographic data without silently dropping operational events
+- [ ] Why star schemas dramatically outperform flat tables in Power BI
 ---
 
 ## Author
