@@ -156,11 +156,11 @@ Same `SUMMARIZE → TOPN → MAXX` pattern is reused for `Busiest Day`. Reusing 
 
 ## Findings
 
-- **Citywide peak hour: 2 PM.** Quietest: 2–5 AM.
+- **Citywide peak hour: 2 PM.** Quietest: 2-5 AM.
 - **Busiest day: Thursday.** Quietest: Friday.
 - **Seasonality:** Nov–Feb high (cooler UAE weather, tourism); Jul–Aug low (heat, travel exodus).
 - **COVID-19 dip in 2020**, full recovery by 2023.
-- **Global ≠ local:** city peaks at 2 PM, but hotspot zones around 25.20° / 55.28° peak between **5–9 PM**. Local patterns and global patterns tell different stories, only visible when temporal and spatial dimensions are combined.
+- **Global ≠ local:** city peaks at 2 PM, but hotspot zones around 25.20° / 55.28° peak between **5-9 PM**. Local patterns and global patterns tell different stories, only visible when temporal and spatial dimensions are combined.
 
 ---
 
@@ -205,7 +205,7 @@ Same `SUMMARIZE → TOPN → MAXX` pattern is reused for `Busiest Day`. Reusing 
 
 ## 📄 Full Case Study
 
-For the complete documented analysis — including ETL pipeline decisions, data quality investigation, dimensional modeling rationale, DAX measures, and the most interesting finding — read the full PDF case study.
+For the complete documented analysis - including ETL pipeline decisions, data quality investigation, dimensional modeling rationale, DAX measures, and the most interesting finding - read the full PDF case study.
 
 **[Read the Case Study (PDF)](case_study.pdf)**
 
