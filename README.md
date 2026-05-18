@@ -203,10 +203,18 @@ Same `SUMMARIZE → TOPN → MAXX` pattern is reused for `Busiest Day`. Reusing 
 - [ ] Why star schemas dramatically outperform flat tables in Power BI
 ---
 
+## 📄 Full Case Study
+
+For the complete documented analysis — including ETL pipeline decisions, data quality investigation, dimensional modeling rationale, DAX measures, and the most interesting finding — read the full PDF case study.
+
+**[Read the Case Study (PDF)](case_study.pdf)**
+
+---
+
 ## Author
 
 Built by **Abdalla Mohamud**
 
-[Portfolio](https://your-portfolio.com) · [LinkedIn](https://linkedin.com/in/your-handle)
+**Portfolio — coming soon** ·[LinkedIn](https://www.linkedin.com/in/abdallamohamud/)
 
 Open to data analyst, BI developer, and analytics engineer roles.
