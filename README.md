@@ -205,7 +205,7 @@ Same `SUMMARIZE → TOPN → MAXX` pattern is reused for `Busiest Day`. Reusing 
 
 ## 📄 Full Case Study
 
-For the complete documented analysis - including ETL pipeline decisions, data quality investigation, dimensional modeling rationale, DAX measures, and the most interesting finding - read the full PDF case study.
+For the complete documented analysis, including ETL pipeline decisions, data quality investigation, dimensional modeling rationale, DAX measures, and the most interesting finding, read the full PDF case study.
 
 **[Read the Case Study (PDF)](case_study.pdf)**
 
@@ -215,6 +215,6 @@ For the complete documented analysis - including ETL pipeline decisions, data qu
 
 Built by **Abdalla Mohamud**
 
-**Portfolio — coming soon** ·[LinkedIn](https://www.linkedin.com/in/abdallamohamud/)
+[Portfolio](https://abdalladata.carrd.co/) ·[LinkedIn](https://www.linkedin.com/in/abdallamohamud/)
 
 Open to data analyst, BI developer, and analytics engineer roles.
