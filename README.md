@@ -158,7 +158,7 @@ Same `SUMMARIZE → TOPN → MAXX` pattern is reused for `Busiest Day`. Reusing 
 
 - **Citywide peak hour: 2 PM.** Quietest: 2-5 AM.
 - **Busiest day: Thursday.** Quietest: Friday.
-- **Seasonality:** Nov–Feb high (cooler UAE weather, tourism); Jul–Aug low (heat, travel exodus).
+- **Seasonality:** Nov-Feb high (cooler UAE weather, tourism); Jul–Aug low (heat, travel exodus).
 - **COVID-19 dip in 2020**, full recovery by 2023.
 - **Global ≠ local:** city peaks at 2 PM, but hotspot zones around 25.20° / 55.28° peak between **5-9 PM**. Local patterns and global patterns tell different stories, only visible when temporal and spatial dimensions are combined.
 
